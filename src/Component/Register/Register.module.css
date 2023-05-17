@@ -1,0 +1,19 @@
+.bg {
+    color: orangered;
+    font-size: 2em;
+}
+
+.btn {
+    background-color: orangered;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    transition: 1s;
+
+}
+
+.btn:hover {
+    background-color: #000;
+    color: #ffff;
+}
