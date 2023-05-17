@@ -5,25 +5,22 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import style from './Movies.module.css'
 export default function Movies() {
-  
-      const [trendinigMovies, settrendinigMovies] = useState([])
 
-    let getTrendingMovies =async () => {
-        let { data } = await axios.get("https://api.themoviedb.org/3/trending/movie/week?api_key=c53b1866ae5832ff68901dfb84dd810c")
-        let results = data.results
-        settrendinigMovies(results)
-        console.log(trendinigMovies);
-    }
-  
+  const [trendinigMovies, settrendinigMovies] = useState([])
+
+  let getTrendingMovies = async () => {
+    let { data } = await axios.get("https://api.themoviedb.org/3/trending/movie/week?api_key=c53b1866ae5832ff68901dfb84dd810c")
+    let results = data.results
+    settrendinigMovies(results)
+  }
   useEffect(() => {
-    
-  getTrendingMovies()
-    
+    getTrendingMovies()
+
   }, [])
-  
-  
+
+
   return <>
-  
+
     <div className="container-fluid my-5">
 
 
@@ -41,8 +38,8 @@ export default function Movies() {
         </div>
 
 
-        {trendinigMovies.map((movie) =>
-          <div className="col-md-2">
+        {trendinigMovies.map((movie, index) =>
+          <div className="col-md-2" key={index}>
             <Link className='nav-link' to={`/details/${movie.id}/${movie.media_type}`}>
               <div className='position-relative'>
                 <img src={'https://image.tmdb.org/t/p/w500/' + movie.poster_path} className='w-100' alt="" />
@@ -63,7 +60,7 @@ export default function Movies() {
         </div>
       </footer>
     </div>
-  
-  
+
+
   </>
 }

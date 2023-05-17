@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Link} from 'react-router-dom'
 import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import style from './People.module.css'
 export default function People() {
-  
+
   const [trendinigPerson, settrendinigPerson] = useState([])
 
   let getTrendingPerson = async () => {
@@ -12,15 +12,15 @@ export default function People() {
     settrendinigPerson(results)
 
   }
-  
+
   useEffect(() => {
 
     //mounting
-    
+
     getTrendingPerson()
 
   }, [])
-  
+
   return <>
     <div className="container-fluid my-5">
 
@@ -37,8 +37,8 @@ export default function People() {
         </div>
 
 
-        {trendinigPerson.map((person) =>
-          <div className="col-md-2">
+        {trendinigPerson.map((person, index) =>
+          <div className="col-md-2" key={index}>
             <Link className='nav-link' to={`/details/${person.id}/${person.media_type}`}>
               <div className={`${style.proto} position-relative`}>
                 <img src={'https://image.tmdb.org/t/p/w500/' + person.poster_path} className='w-100' alt="" />
@@ -64,6 +64,6 @@ export default function People() {
         </div>
       </footer>
     </div>
-  
+
   </>
 }

@@ -15,7 +15,6 @@ import Register from '../Register/Register'
 import TvShow from '../TvShow/TvShow'
 
 
-import { Online } from 'react-detect-offline'
 export default function App() {
 
 
@@ -67,7 +66,7 @@ export default function App() {
   return <>
     <div>
       
-    <Online><RouterProvider router={routes} /></Online>
+    <RouterProvider router={routes} />
       
       
   </div>

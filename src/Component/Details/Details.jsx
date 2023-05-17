@@ -1,7 +1,6 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import axios from 'axios'
-import { Helmet } from 'react-helmet'
 
 export default function Details() {
     let params = useParams()
@@ -32,9 +31,7 @@ export default function Details() {
     
     
     return <>
-        <Helmet>
-            <title>Details Movies</title>
-        </Helmet>
+       
         <div className='container my-5 p-5 '>
            <div className="row">
                 <div className="col-md-4">

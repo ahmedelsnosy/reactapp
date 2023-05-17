@@ -42,8 +42,8 @@ export default function Home() {
                         <p className='my-5 text-muted fa-2x'>Enjoy watching movies</p>
                     </div>
                 </div>
-                {trendinigMovies.slice(0, 11).map((movie) =>
-                    <div className="col-md-2">
+                {trendinigMovies.slice(0, 11).map((movie,index) =>
+                    <div className="col-md-2" key={index}>
                         <Link className='nav-link' to={`/details/${movie.id}/${movie.media_type}`}>
                             <div className='position-relative'>
                                 <img src={'https://image.tmdb.org/t/p/w500/' + movie.poster_path} className='w-100' alt="" />
@@ -77,9 +77,9 @@ export default function Home() {
                 </div>
 
 
-                {trendinigTv.slice(0, 11).map((tv) =>
+                {trendinigTv.slice(0, 11).map((tv,index) =>
 
-                    <div className="col-md-2">
+                    <div className="col-md-2" key={index}>
                         <Link className='nav-link' to={`/details/${tv.id}/${tv.media_type}`}>
                             <div className='position-relative'>
                                 <img src={'https://image.tmdb.org/t/p/w500/' + tv.poster_path} className='w-100' alt="" />
@@ -105,8 +105,8 @@ export default function Home() {
                         <h2><span className={style.test}>T</span>rending People</h2>
                     </div>
                 </div>
-                {trendinigPerson.slice(0, 11).map((person) =>
-                    <div className="col-md-2">
+                {trendinigPerson.slice(0, 11).map((person,index) =>
+                    <div className="col-md-2" key={index}>
                         <Link className='nav-link' to={`/details/${person.id}/${person.media_type}`}>
                             <div className={`${style.proto} position-relative`}>
                                 <img src={'https://image.tmdb.org/t/p/w500/' + person.poster_path} className='w-100' alt="" />

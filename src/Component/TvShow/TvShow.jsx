@@ -35,9 +35,9 @@ export default function TvShow() {
         </div>
 
 
-        {trendinigTv.map((tv) =>
+        {trendinigTv.map((tv,index) =>
 
-          <div className="col-md-2">
+          <div className="col-md-2" key={index}>
             <Link className='nav-link' to={`/details/${tv.id}/${tv.media_type}`}>
               <div className='position-relative'>
                 <img src={'https://image.tmdb.org/t/p/w500/' + tv.poster_path} className='w-100' alt="" />
